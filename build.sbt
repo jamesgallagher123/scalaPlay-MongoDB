@@ -1,13 +1,15 @@
-name := "scalaPlayMongoDB"
+name := "untitled"
+ 
+version := "1.0" 
+      
+lazy val `untitled` = (project in file(".")).enablePlugins(PlayScala)
 
-version := "1.0"
+resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
+      
+scalaVersion := "2.11.11"
 
-lazy val `scalaplaymongodb` = (project in file(".")).enablePlugins(PlayScala)
+libraryDependencies ++= Seq( jdbc , cache , ws , specs2 % Test )
 
-scalaVersion := "2.11.7"
+libraryDependencies +=  "org.reactivemongo" %% "play2-reactivemongo" % "0.12.5-play25"
 
-libraryDependencies ++= Seq( jdbc , cache , ws   , specs2 % Test )
-
-unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )  
-
-resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"  
+unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )
