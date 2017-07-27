@@ -23,7 +23,7 @@ class MongoApplicationController @Inject()(val reactiveMongoApi: ReactiveMongoAp
   def create: Action[AnyContent] = Action.async {
     //case class User(age: Int, firstName: String, lastName: String, feeds: Seq[Feed])
     //case class Feed(name: String, url: String)
-    val user = User(28, "FirstName", "Lastname", List(Feed("BBC news", "http://www.bbc.co.uk")))
+    val user = User("FirstName", "Lastname", 28)
     val futureResult = collection.flatMap(_.insert(user))
     futureResult.map(_ => Ok("Added user " + user.firstName + " " + user.lastName))
   }
