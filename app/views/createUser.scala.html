@@ -1,0 +1,12 @@
+@(form: Form[User])(implicit messages: Messages)
+
+@main("Users") {
+
+    @helper.form(routes.MongoApplicationController.createUser()) {
+        @helper.inputText(form("first name"), 'id -> "SomeId", 'class -> "SomeClass")
+        @helper.inputText(form("last name"))
+        @helper.inputText(form("age"))
+        <button type="submit">Create User</button>
+    }
+
+}

@@ -6,7 +6,9 @@ GET         /cds                 controllers.Application.listCDs
 POST        /cds                 controllers.Application.createCD
 
 # routes for interacting with mongo
-GET         /createperson        controllers.MongoApplicationController.create
+GET         /createperson        controllers.MongoApplicationController.loadCreateUser
+POST        /createperson        controllers.MongoApplicationController.createUser
+
 GET         /findperson          controllers.MongoApplicationController.findByName
 
 # Map static resources from the /public folder to the /assets URL path
